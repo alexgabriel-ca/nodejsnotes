@@ -15,13 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//Include file and assign value from includes.js variable to local variable.
-const add = require("./includes.js");
-//save reference to add function in the includes file into local variable with the same name
-const getnotes = require("./notes.js");
-//save reference to getNotes function in the includes file into local variable with the same name
+const getNotes = function () {
+	return "Your notes...";
+};
 
-console.log(add(5, 6));
-//call add function defined using require
-console.log(getnotes());
-//call getnotes function defined using require
+module.exports = getNotes;

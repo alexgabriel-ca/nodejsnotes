@@ -14,14 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+const name = "Alex";
 
-//Include file and assign value from includes.js variable to local variable.
-const add = require("./includes.js");
-//save reference to add function in the includes file into local variable with the same name
-const getnotes = require("./notes.js");
-//save reference to getNotes function in the includes file into local variable with the same name
+const add = function (a, b) {
+	return a + b;
+};
 
-console.log(add(5, 6));
-//call add function defined using require
-console.log(getnotes());
-//call getnotes function defined using require
+//Define variables within the file that can be accessed in any calling files.
+module.exports = add;
