@@ -1,0 +1,24 @@
+{
+  "name": "nodejsnotes",
+  "version": "1.0.0",
+  "description": "Note taking app in Node.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://alexgabriel-ca@github.com/alexgabriel-ca/nodejsnotes.git"
+  },
+  "author": "Alex Gabriel",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/alexgabriel-ca/nodejsnotes/issues"
+  },
+  "homepage": "https://github.com/alexgabriel-ca/nodejsnotes#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "validator": "^13.5.1",
+    "yargs": "^16.1.1"
+  }
+}
