@@ -18,7 +18,8 @@
 /*Import libraries and files for use in the app*/
 const chalk = require('chalk');
 const yargs = require('yargs');
-const getNotes = require('./notes.js');
+const fs = require('fs');
+const notes = require('./notes.js');
 
 /*Configure yargs to work with the commands provided*/
 yargs.command({
@@ -29,10 +30,15 @@ yargs.command({
 			describe: 'Note title',
 			demandOption: true,
 			type: 'string'
+		},
+		body: {
+			describe: 'Note body',
+			demandOption: true,
+			type: 'string'
 		}
 	},
 	handler: function (argv) {
-		console.log('Adding a new note:', argv.title);
+		notes.createNote(argv.title, argv.body);
 	}
 });
 yargs.command({
@@ -45,8 +51,8 @@ yargs.command({
 			type: 'string'
 		}
 	},
-	handler: function () {
-		console.log('Here is your note');
+	handler: function (argv) {
+		notes.readNote(argv.title);
 	}
 });
 yargs.command({
@@ -57,10 +63,15 @@ yargs.command({
 			describe: 'Note title',
 			demandOption: true,
 			type: 'string'
+		},
+		body: {
+			describe: 'Note title',
+			demandOption: true,
+			type: 'string'
 		}
 	},
-	handler: function () {
-		console.log('Updating note');
+	handler: function (argv) {
+		notes.updateNote(argv.title, argv.body);
 	}
 });
 yargs.command({
@@ -73,8 +84,8 @@ yargs.command({
 			type: 'string'
 		}
 	},
-	handler: function () {
-		console.log('Deleting a note');
+	handler: function (argv) {
+		notes.deleteNote(argv.title);
 	}
 });
 yargs.command({
@@ -87,8 +98,9 @@ yargs.command({
 			type: 'string'
 		}
 	},
-	handler: function () {
-		console.log('Here are all notes');
+	handler: function (argv) {
+		notes.listNotes();
 	}
 });
+//console.log(yargs.argv);
 yargs.parse();
