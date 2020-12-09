@@ -3,6 +3,14 @@ const chalk = require('chalk');
 
 const listNotes = () => {
 	const notes = loadNotes();
+	try {
+		console.log(chalk.blueBright('Your Notes'));
+		notes.forEach((note) => {
+			console.log(note.title);
+		})
+	} catch (e) {
+		console.log(e);
+	}
 };
 
 const createNote = (title, body) => {
@@ -25,6 +33,17 @@ const createNote = (title, body) => {
 
 const readNote = (title) => {
 	const notes = loadNotes();
+	try {
+		const selectedNote = notes.find((note) => note.title === title);
+		if (selectedNote === undefined) {
+			console.log(chalk.redBright("Note not found"));
+		} else {
+			console.log(chalk.blueBright("Title:\t")+selectedNote.title);
+			console.log(chalk.blueBright("Body:\t")+selectedNote.body);
+		}
+	} catch (e) {
+		console.log(e);
+	}
 };
 
 const updateNote = function (title, body) {
